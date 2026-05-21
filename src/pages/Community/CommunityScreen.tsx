@@ -94,7 +94,7 @@ export function CommunityScreen() {
       oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
       const postsPromise = supabase
-        .from("discussion_posts")
+        .from("discussions")
         .select("*", { count: "exact", head: true })
         .gte("created_at", oneWeekAgo.toISOString());
 
@@ -141,7 +141,7 @@ export function CommunityScreen() {
         {
           event: '*', // Listen to INSERT, UPDATE, DELETE
           schema: 'public',
-          table: 'discussion_posts'
+          table: 'discussions'
         },
         () => fetchStats() // Re-fetch on post changes
       )
