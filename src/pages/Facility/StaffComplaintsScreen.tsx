@@ -1,7 +1,6 @@
 import {
   AlertCircle,
   ArrowLeft,
-  Filter,
   Search,
   Clock,
 } from "lucide-react";

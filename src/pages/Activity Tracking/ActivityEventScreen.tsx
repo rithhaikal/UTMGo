@@ -47,8 +47,8 @@ export function ActivityEventsScreen({
   const [filteredEvents, setFilteredEvents] = useState<ActivityEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-  const [statusFilter, setStatusFilter] = useState("all");
-  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [statusFilter] = useState("all");
+  const [categoryFilter] = useState("all");
 
   /* ================= LOAD EVENTS ================= */
 

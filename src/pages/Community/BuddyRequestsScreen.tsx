@@ -1,4 +1,4 @@
-import { ArrowLeft, UserPlus, Check, X, Clock } from "lucide-react";
+import { ArrowLeft, UserPlus, Check, X } from "lucide-react";
 import { useUserPreferences } from "../../lib/UserPreferencesContext";
 
 interface BuddyRequest {

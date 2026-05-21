@@ -171,7 +171,6 @@ export function PrivateChatListScreen({
         ) : (
           <div className="space-y-4">
             {filteredChats.map((chat) => {
-              const otherUserId = chat.otherUserId;
               const otherUserName = chat.otherUserName;
               const otherUserAvatar = chat.otherUserAvatar;
 

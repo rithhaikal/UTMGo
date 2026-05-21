@@ -1,4 +1,4 @@
-import { AlertCircle, ArrowLeft, Plus, Filter } from "lucide-react";
+import { AlertCircle, ArrowLeft, Plus } from "lucide-react";
 import { useState } from "react";
 import { useUserPreferences } from "../../lib/UserPreferencesContext";
 
@@ -23,7 +23,6 @@ interface FacilityComplaintsScreenProps {
 export function FacilityComplaintsScreen({
   onNavigate,
   complaints,
-  onUpdateComplaints,
 }: FacilityComplaintsScreenProps) {
   const { theme, t } = useUserPreferences();
   const [statusFilter, setStatusFilter] = useState<string>("All");

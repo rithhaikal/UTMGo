@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowLeft, UserPlus, UserMinus, X } from "lucide-react";
+import { ArrowLeft, UserPlus, UserMinus } from "lucide-react";
 import { supabase } from "../../lib/supabaseClient";
 import { useUserPreferences } from "../../lib/UserPreferencesContext";
 import { toast } from "sonner";

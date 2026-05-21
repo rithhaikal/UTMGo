@@ -44,36 +44,6 @@ export function StaffComplaintDetailScreen({
   const [assignedTo, setAssignedTo] = useState(complaint.assignedTo || "");
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "Submitted":
-        return { bg: "#F5F5F5", text: "#555555", border: "#E5E5E5" };
-      case "In Progress":
-        return { bg: "#FFF4E6", text: "#D97706", border: "#FCD34D" };
-      case "Resolved":
-        return { bg: "#F0FDF4", text: "#16A34A", border: "#86EFAC" };
-      case "Rejected":
-        return { bg: "#FEF2F2", text: "#DC2626", border: "#FCA5A5" };
-      default:
-        return { bg: "#F5F5F5", text: "#555555", border: "#E5E5E5" };
-    }
-  };
-
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case "Urgent":
-        return { bg: "#FEF2F2", text: "#DC2626" };
-      case "High":
-        return { bg: "#FFF4E6", text: "#EA580C" };
-      case "Medium":
-        return { bg: "#FFF7ED", text: "#F59E0B" };
-      case "Low":
-        return { bg: "#F0F9FF", text: "#0284C7" };
-      default:
-        return { bg: "#F5F5F5", text: "#888888" };
-    }
-  };
-
   const getStatusTranslation = (status: string) => {
     switch (status) {
       case "Submitted": return t('status_submitted');
@@ -109,9 +79,6 @@ export function StaffComplaintDetailScreen({
     setShowConfirmDialog(false);
     onNavigate("staff-complaints");
   };
-
-  const statusColors = getStatusColor(status);
-  const priorityColors = getPriorityColor(priority);
 
   // Calculate days since submission
   const getDaysOld = (dateStr: string) => {

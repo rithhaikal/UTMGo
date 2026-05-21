@@ -19,7 +19,7 @@ export function EditProfileScreen({
   onSaveProfile,
   studentId 
 }: EditProfileScreenProps) {
-  const { theme, t } = useUserPreferences(); 
+  const { theme } = useUserPreferences();
   
   const [fullName, setFullName] = useState("");
   const [profilePicture, setProfilePicture] = useState<string | null>(null);

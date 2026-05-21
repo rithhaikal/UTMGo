@@ -1,4 +1,4 @@
-import { ArrowLeft, Image as ImageIcon } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useUserPreferences } from "../../lib/UserPreferencesContext";
 
 interface Complaint {

@@ -128,7 +128,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
   const isMs = preferences.language_code === "ms";
 
   const [recommended, setRecommended] = useState<any>(null);
-  const [loadingRecommended, setLoadingRecommended] = useState(true);
+  const [, setLoadingRecommended] = useState(true);
   const [stats, setStats] = useState({ total: 0, validated: 0, pending: 0 });
 
   const [upcomingBooking, setUpcomingBooking] = useState<any>(null);

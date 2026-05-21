@@ -48,7 +48,7 @@ export function FacilityDetailsScreen({
   onNavigate,
 }: FacilityDetailsScreenProps) {
   // 3. Consume context for dynamic styles and language
-  const { theme, t, preferences } = useUserPreferences();
+  const { theme, preferences } = useUserPreferences();
   const isMs = preferences.language_code === 'ms';
 
   const [facility, setFacility] = useState<FacilityRow | null>(null);

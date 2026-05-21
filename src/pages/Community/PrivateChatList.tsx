@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowLeft, Send, MapPin, ShoppingBag, Users, User, Check, CheckCheck } from "lucide-react";
+import { ArrowLeft, Send, MapPin, ShoppingBag, Users, User } from "lucide-react";
 import { supabase } from "../../lib/supabaseClient";
 
 // ==========================================

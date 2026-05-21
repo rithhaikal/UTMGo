@@ -21,7 +21,7 @@ const activityLogs = [
 
 export function StaffActivityLogScreen({ onNavigate }: StaffActivityLogScreenProps) {
   // 2. Consume global theme and translation tools
-  const { theme, t, preferences } = useUserPreferences();
+  const { theme, preferences } = useUserPreferences();
   const [searchQuery, setSearchQuery] = useState("");
 
   const isMs = preferences.language_code === 'ms';

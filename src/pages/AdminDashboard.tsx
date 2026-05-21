@@ -1,7 +1,7 @@
-import { 
-  Search, User, Edit, Trash2, Shield, 
-  AlertCircle, Home, Settings, LogOut, Loader2, Briefcase,
-  ChevronRight, HelpCircle, Save, Check, Moon, Sun, ArrowLeft,
+import {
+  Search, User, Edit, Trash2, Shield,
+  Home, Settings, Loader2, Briefcase,
+  ChevronRight, Save, Moon, Sun, ArrowLeft,
   AlertTriangle
 } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
@@ -24,8 +24,8 @@ interface AdminDashboardProps {
   onLogout: () => void;
 }
 
-export function AdminDashboard({ onNavigate, onLogout }: AdminDashboardProps) {
-  const { theme, preferences, updateTheme, updateLanguage } = useUserPreferences();
+export function AdminDashboard({ onLogout }: AdminDashboardProps) {
+  const { theme, preferences, updateTheme } = useUserPreferences();
   const isMs = preferences.language_code === 'ms';
   
   const [activeTab, setActiveTab] = useState<"home" | "profile">("home");

@@ -85,7 +85,7 @@ export function UserPreferencesProvider({ children }: { children: React.ReactNod
     const idColumn = role === 'staff' ? 'user_id' : 'id';
 
     try {
-      let { data, error } = await supabase.from(profileTable).select('id').eq(idColumn, authId).maybeSingle();
+      let { data } = await supabase.from(profileTable).select('id').eq(idColumn, authId).maybeSingle();
       let validId = data?.id;
 
       if (!validId) {
