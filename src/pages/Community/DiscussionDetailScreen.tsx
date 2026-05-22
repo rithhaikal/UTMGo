@@ -52,6 +52,7 @@ export function DiscussionDetailScreen({
   >("spam");
 
   const [loading, setLoading] = useState(true);
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
 
   // Load post + comments + like/report state
   useEffect(() => {
@@ -61,6 +62,8 @@ export function DiscussionDetailScreen({
       const {
         data: { user },
       } = await supabase.auth.getUser();
+
+      if (user) setCurrentUserId(user.id);
 
       // ----- POST -----
       const { data: postRow, error: postError } = await supabase
@@ -376,7 +379,7 @@ export function DiscussionDetailScreen({
   }
 
   const postTimestampLabel = new Date(post.created_at).toLocaleString();
-  const isAuthor = post.author_name === studentName;
+  const isAuthor = !!(currentUserId && post.author_id === currentUserId);
 
   return (
     <div className="min-h-screen pb-24 discussion-detail-page transition-colors" style={{ backgroundColor: theme.background }}>

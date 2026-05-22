@@ -60,7 +60,7 @@ export function PrivateChatListScreen({
       // 2. Identify other users to fetch their profiles
       const otherUserIds = new Set<string>();
       chatsData.forEach((checkChat: any) => {
-        const otherId = checkChat.participant_ids.find((pid: string) => pid !== currentUserId);
+        const otherId = (checkChat.participant_ids ?? []).find((pid: string) => pid !== currentUserId);
         if (otherId) otherUserIds.add(otherId);
       });
 
@@ -77,7 +77,7 @@ export function PrivateChatListScreen({
 
       // 4. Map chats to include other user details
       const mappedChats = chatsData.map((c: any) => {
-        const otherId = c.participant_ids.find((pid: string) => pid !== currentUserId);
+        const otherId = (c.participant_ids ?? []).find((pid: string) => pid !== currentUserId);
         const profile = profilesMap.get(otherId);
 
         // Fallback title logic:
