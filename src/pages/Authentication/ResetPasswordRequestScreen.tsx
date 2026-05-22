@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { supabase } from "../../lib/supabaseClient";
-// Import context untuk tema
 import { useUserPreferences } from "../../lib/UserPreferencesContext";
 
 interface ResetPasswordRequestScreenProps {
@@ -12,9 +12,9 @@ interface ResetPasswordRequestScreenProps {
 export function ResetPasswordRequestScreen({
   onNavigate,
 }: ResetPasswordRequestScreenProps) {
-  // Ambil data tema daripada context
   const { theme } = useUserPreferences();
-  
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -30,7 +30,6 @@ export function ResetPasswordRequestScreen({
     setLoading(true);
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      // Di mana pengguna akan dihantar SELEPAS mengklik pautan e-mel
       redirectTo: `${window.location.origin}/reset-password-new`,
     });
 
@@ -41,8 +40,7 @@ export function ResetPasswordRequestScreen({
       return;
     }
 
-    // Pergi ke skrin "Check your email"
-    onNavigate("reset-link-sent");
+    navigate("/reset-link-sent", { state: { email } });
   };
 
   return (

@@ -1,6 +1,8 @@
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Mail } from "lucide-react";
 import { Button } from "../../components/ui/button";
-// Import context untuk tema
+import { supabase } from "../../lib/supabaseClient";
 import { useUserPreferences } from "../../lib/UserPreferencesContext";
 
 interface ResetLinkSentScreenProps {
@@ -8,13 +10,25 @@ interface ResetLinkSentScreenProps {
 }
 
 export function ResetLinkSentScreen({ onNavigate }: ResetLinkSentScreenProps) {
-  // Ambil data tema daripada context
   const { theme } = useUserPreferences();
+  const location = useLocation();
+  const email = (location.state as { email?: string })?.email ?? "";
 
-  const handleResend = () => {
-    // Optional: you can pass the email here as a prop and call
-    // supabase.auth.resetPasswordForEmail(email) again.
-    console.log("Resend reset link clicked");
+  const [resending, setResending] = useState(false);
+  const [resendMsg, setResendMsg] = useState("");
+
+  const handleResend = async () => {
+    if (!email) {
+      setResendMsg("Unable to resend — please request a new link.");
+      return;
+    }
+    setResending(true);
+    setResendMsg("");
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password-new`,
+    });
+    setResending(false);
+    setResendMsg(error ? "Failed to resend. Try again." : "Link resent! Check your inbox.");
   };
 
   return (
@@ -83,12 +97,18 @@ export function ResetLinkSentScreen({ onNavigate }: ResetLinkSentScreenProps) {
               Didn't receive the email?{" "}
               <button
                 onClick={handleResend}
-                className="underline font-semibold"
-                style={{ color: theme.primary }} // Pautan mengikut warna primary tema
+                disabled={resending}
+                className="underline font-semibold disabled:opacity-50"
+                style={{ color: theme.primary }}
               >
-                Resend Link
+                {resending ? "Sending..." : "Resend Link"}
               </button>
             </p>
+            {resendMsg && (
+              <p className="text-sm mt-2" style={{ color: resendMsg.includes("resent") ? theme.primary : "#EF4444" }}>
+                {resendMsg}
+              </p>
+            )}
           </div>
         </div>
       </div>
