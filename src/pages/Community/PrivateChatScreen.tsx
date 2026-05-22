@@ -151,7 +151,7 @@ export function PrivateChatScreen({
       </div>
 
       {/* Input Area */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 border-t safe-area-bottom transition-colors" style={{ backgroundColor: theme.background, borderColor: theme.border }}>
+      <div className="fixed-action-bar p-4 border-t transition-colors" style={{ backgroundColor: theme.background, borderColor: theme.border }}>
         <div className="flex gap-2 items-end">
           <button
             onClick={() => handleSend(`${t('chat_shared_loc_prefix')} Library`, "location")}

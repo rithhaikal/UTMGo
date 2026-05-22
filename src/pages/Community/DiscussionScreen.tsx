@@ -29,8 +29,8 @@ export function DiscussionScreenHeader({
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-6 border-b transition-colors"
-      style={{ backgroundColor: theme.background, borderColor: theme.border, transform: "none" }}
+      className="sticky top-0 z-40 px-6 py-6 border-b transition-colors"
+      style={{ backgroundColor: theme.background, borderColor: theme.border }}
     >
       <div className="flex items-center justify-between">
         
@@ -131,9 +131,6 @@ export function DiscussionScreen({ onNavigate }: DiscussionScreenProps) {
       
       {/* ✅ Header is now rendered directly here so the button always appears */}
       <DiscussionScreenHeader onNavigate={onNavigate} />
-
-      {/* spacer reserved by fixed header */}
-      <div className="h-24" />
 
       {/* Content */}
       <div

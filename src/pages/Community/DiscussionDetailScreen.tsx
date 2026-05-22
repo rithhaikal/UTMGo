@@ -382,7 +382,7 @@ export function DiscussionDetailScreen({
   const isAuthor = !!(currentUserId && post.author_id === currentUserId);
 
   return (
-    <div className="min-h-screen pb-24 discussion-detail-page transition-colors" style={{ backgroundColor: theme.background }}>
+    <div className="discussion-detail-page transition-colors" style={{ backgroundColor: theme.background }}>
       {/* Header */}
       <div
         className="sticky top-0 z-40 px-6 py-6 border-b transition-colors"
@@ -402,7 +402,7 @@ export function DiscussionDetailScreen({
       </div>
 
       {/* Content */}
-      <div className="px-6 py-6 space-y-6">
+      <div className="px-6 py-6 space-y-6" style={{ paddingBottom: "100px" }}>
         {/* Original Post */}
         <div
           className="border p-5 transition-colors"
@@ -591,7 +591,7 @@ export function DiscussionDetailScreen({
       </div>
 
       {/* Comment Input Footer */}
-      <div className="fixed bottom-0 left-0 right-0 p-4" style={{ borderTop: `1px solid ${theme.border}`, backgroundColor: theme.cardBg }}>
+      <div className="fixed-action-bar p-4" style={{ borderTop: `1px solid ${theme.border}`, backgroundColor: theme.cardBg }}>
         <div className="flex gap-2">
           <input
             type="text"

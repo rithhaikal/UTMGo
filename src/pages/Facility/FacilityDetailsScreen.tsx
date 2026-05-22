@@ -98,12 +98,9 @@ export function FacilityDetailsScreen({
   const amenities = facility.amenities ?? [];
 
   return (
-    <div className="h-screen flex flex-col transition-colors duration-300" style={{ backgroundColor: theme.background }}>
+    <div className="h-full transition-colors duration-300" style={{ backgroundColor: theme.background }}>
       <div className="container-form lg:pt-8">
-        <div
-          className="flex-1 overflow-auto min-h-0 px-6 pb-24 pt-0 overscroll-contain"
-          style={{ paddingBottom: "120px", WebkitOverflowScrolling: "touch" }}
-        >
+        <div className="px-6 pt-0" style={{ paddingBottom: "120px" }}>
           {/* Full-bleed banner */}
           <div className="-mx-6 w-screen max-w-none h-48 shrink-0 lg:mx-0 lg:w-full lg:rounded-2xl lg:overflow-hidden">
             {facility.image_url ? (
@@ -209,12 +206,13 @@ export function FacilityDetailsScreen({
             )}
           </div>
         </div>
+      </div>
 
-        {/* Bottom CTA Button */}
-        <div
-          className="fixed bottom-0 left-0 right-0 border-t px-6 py-4 z-50 transition-colors duration-300 lg:static lg:border-0 lg:pt-0"
-          style={{ backgroundColor: theme.cardBg, borderColor: theme.border }}
-        >
+      {/* Bottom CTA Button */}
+      <div
+        className="fixed-action-bar border-t px-6 py-4 transition-colors duration-300"
+        style={{ backgroundColor: theme.cardBg, borderColor: theme.border }}
+      >
           <button
             onClick={() => onNavigate("time-slot", facilityId)}
             className="w-full h-12 flex items-center justify-center transition-all active:scale-95 shadow-lg"
@@ -228,7 +226,6 @@ export function FacilityDetailsScreen({
           >
             {isMs ? "Tempah Sekarang" : "Book Now"}
           </button>
-        </div>
       </div>
     </div>
   );

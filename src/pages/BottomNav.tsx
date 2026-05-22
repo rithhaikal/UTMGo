@@ -29,8 +29,16 @@ export function BottomNav({ activeTab, onTabChange }: any) {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 h-16 border-t flex items-center justify-around z-50 px-2 lg:hidden"
-      style={{ backgroundColor: theme.cardBg, borderColor: theme.border }}
+      className="fixed bottom-0 h-16 border-t flex items-center justify-around z-50 px-2 lg:hidden"
+      style={{
+        backgroundColor: theme.cardBg,
+        borderColor: theme.border,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100%',
+        maxWidth: '448px',
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+      }}
     >
       {orderedTabs.map((tab: any) => (
         <button

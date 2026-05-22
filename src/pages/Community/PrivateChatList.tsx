@@ -236,7 +236,7 @@ export function PrivateChatScreen({
       </div>
 
       {/* Input */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-100 safe-area-bottom">
+      <div className="fixed-action-bar p-4 bg-white border-t border-gray-100">
         <div className="flex gap-2 items-end">
           <button
             onClick={() => handleSend("📍 Shared Location: Library", "location")}

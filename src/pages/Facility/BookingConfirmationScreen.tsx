@@ -178,7 +178,7 @@ export function BookingConfirmationScreen({
 
         {/* Fixed Footer Buttons */}
         <div
-          className="fixed bottom-0 left-0 right-0 max-w-md mx-auto border-t px-4 py-4 z-50 transition-colors"
+          className="fixed-action-bar border-t px-4 py-4 transition-colors"
           style={{ backgroundColor: theme.cardBg, borderColor: theme.border }}
         >
           <div className="flex gap-3">

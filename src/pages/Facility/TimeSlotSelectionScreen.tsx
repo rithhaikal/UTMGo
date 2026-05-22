@@ -223,7 +223,7 @@ export function TimeSlotSelectionScreen({
 
       {/* Fixed Footer Button */}
       <div
-        className="fixed bottom-0 left-0 right-0 max-w-md mx-auto border-t px-6 py-4 z-50 transition-colors"
+        className="fixed-action-bar border-t px-6 py-4 transition-colors"
         style={{ backgroundColor: theme.cardBg, borderColor: theme.border }}
       >
         <button

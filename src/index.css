@@ -41,6 +41,11 @@ html, body {
   z-index: 1;
 }
 
+/* Padding so content is never hidden behind the fixed bottom nav */
+.content.with-bottom-nav {
+  padding-bottom: 64px;
+}
+
 /* Hilangkan scrollbar untuk rupa yang lebih bersih */
 .content::-webkit-scrollbar {
   display: none;
@@ -64,7 +69,24 @@ header.fixed-header-top {
   flex-shrink: 0; /* Jangan biarkan header mengecil */
 }
 
-/* 5. Navbar Fixed Styling */
+/* 5. Fixed action bar — centered within content column on all sizes */
+.fixed-action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 448px;
+  z-index: 50;
+}
+
+@media (min-width: 1024px) {
+  .fixed-action-bar {
+    max-width: 860px;
+  }
+}
+
+/* 6. Navbar Fixed Styling */
 nav.fixed-bottom-nav {
   position: sticky;
   bottom: 0;

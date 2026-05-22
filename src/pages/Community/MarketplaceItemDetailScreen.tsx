@@ -137,7 +137,7 @@ export function MarketplaceItemDetailScreen({
       </div>
 
       {/* 3. Bottom Action Bar */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 border-t safe-area-bottom z-50 transition-colors" style={{ backgroundColor: theme.cardBg, borderColor: theme.border }}>
+      <div className="fixed-action-bar p-4 border-t transition-colors" style={{ backgroundColor: theme.cardBg, borderColor: theme.border }}>
         <div className="flex gap-3">
           {isOwner ? (
             <button onClick={() => setIsDeleteModalOpen(true)} className="flex-1 py-3 text-white rounded-xl font-bold shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-2" style={{ backgroundColor: "#DC2626", boxShadow: "0 4px 12px rgba(220, 38, 38, 0.3)" }}>

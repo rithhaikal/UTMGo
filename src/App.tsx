@@ -962,11 +962,12 @@ export default function App() {
     <UserPreferencesProvider>
       <Toaster position="top-center" richColors />
       <div className="h-full w-full bg-[--bg-primary)] text-[--text-primary)] transition-colors duration-300 flex flex-col overflow-hidden">
-        {authed && 
-         userRole !== "admin" && 
-         !location.pathname.startsWith("/login") &&
+        {authed &&
+         userRole !== "admin" &&
+         location.pathname !== "/" &&
          !location.pathname.startsWith("/register") &&
-         !location.pathname.startsWith("/reset-password") && (
+         !location.pathname.startsWith("/reset-password") &&
+         !location.pathname.startsWith("/reset-link-sent") && (
           <DesktopTopNav
             activeTab={activeTab}
             onTabChange={onTabChange}
@@ -1013,16 +1014,20 @@ export default function App() {
               <Route
                 path="/"
                 element={
-                  <LoginScreen
-                    onLogin={handleLogin}
-                    onNavigate={(p) =>
-                      navigate(
-                        p === "register"
-                          ? "/register"
-                          : "/reset-password-request"
-                      )
-                    }
-                  />
+                  authed ? (
+                    <Navigate to={userRole === "admin" ? "/admin-dashboard" : "/home"} replace />
+                  ) : (
+                    <LoginScreen
+                      onLogin={handleLogin}
+                      onNavigate={(p) =>
+                        navigate(
+                          p === "register"
+                            ? "/register"
+                            : "/reset-password-request"
+                        )
+                      }
+                    />
+                  )
                 }
               />
               <Route

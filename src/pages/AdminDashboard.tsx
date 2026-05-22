@@ -283,7 +283,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
       
       {renderContent()}
 
-      <div className="fixed bottom-0 left-0 right-0 border-t flex justify-around items-center px-2 py-3 z-50" style={{ backgroundColor: theme.cardBg, borderColor: theme.border }}>
+      <div className="fixed-action-bar border-t flex justify-around items-center px-2 py-3" style={{ backgroundColor: theme.cardBg, borderColor: theme.border }}>
         <button onClick={() => setActiveTab("home")} className="flex flex-col items-center w-full py-1"><Home size={22} style={{ color: activeTab === "home" ? theme.primary : theme.textSecondary }} /><span className="text-[10px] mt-1" style={{ color: activeTab === "home" ? theme.primary : theme.textSecondary }}>{isMs ? "Utama" : "Home"}</span></button>
         <button onClick={() => setActiveTab("profile")} className="flex flex-col items-center w-full py-1"><User size={22} style={{ color: activeTab === "profile" ? theme.primary : theme.textSecondary }} /><span className="text-[10px] mt-1" style={{ color: activeTab === "profile" ? theme.primary : theme.textSecondary }}>{isMs ? "Profil" : "Profile"}</span></button>
       </div>
